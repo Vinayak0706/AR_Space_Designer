@@ -13,6 +13,9 @@ public class ARPlacementController : MonoBehaviour
     [Header("Placement")]
     public PlaceableObjectData selectedObject;
 
+    [Header("UI")]
+    public InstructionText instructionText;
+
     private GameObject placedObject;
     private static List<ARRaycastHit> hits = new();
 
@@ -54,6 +57,12 @@ public class ARPlacementController : MonoBehaviour
             );
 
             placedObject.transform.localScale = selectedObject.defaultScale;
+            var interaction = placedObject.GetComponent<ARObjectInteraction>();
+            if (interaction != null)
+            {
+                interaction.raycastManager = raycastManager;
+            }
+            instructionText.SetInstruction("Drag to move • Pinch to scale • Rotate with two fingers");
         }
     }
 

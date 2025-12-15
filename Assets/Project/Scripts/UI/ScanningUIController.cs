@@ -6,9 +6,7 @@ public class ScanningUIController : MonoBehaviour
 {
     [Header("References")]
     public ARPlaneManager planeManager;
-    public CanvasGroup scanningCanvas;
-    public GameObject scanningText;
-    public GameObject placeObjectText;
+    public InstructionText instructionText;
 
     bool hasFoundPlane = false;
 
@@ -20,32 +18,10 @@ public class ScanningUIController : MonoBehaviour
         if (planeManager.trackables.count > 0)
         {
             hasFoundPlane = true;
-            scanningText.SetActive(false);
-            placeObjectText.SetActive(true);
+            instructionText.SetInstruction("Tap to place object.");
         }
     }
 
-    IEnumerator FadeOut()
-    {
-        float t = 1f;
-        while (t > 0f)
-        {
-            t -= Time.deltaTime;
-            scanningCanvas.alpha = t;
-            yield return null;
-        }
-
-    }
-
-    IEnumerator FadeIn()
-    {
-        for (float t = 1f; t >= 0f; t -= Time.deltaTime)
-        {
-            scanningCanvas.alpha = t;
-            yield return null;
-        }
-        scanningCanvas.alpha = 0f;
-
-    }
+ 
 
 }

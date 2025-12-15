@@ -8,7 +8,7 @@ public class StartARController : MonoBehaviour
     public GameObject startScreen;
     public CanvasGroup fadeOverlay;
     public ARCameraBackground arCameraBackground;
-    public CanvasGroup scanningCanvas;
+    public InstructionText instructionText;
 
     [Header("AR")]
     public ARSession arSession;
@@ -39,7 +39,7 @@ public class StartARController : MonoBehaviour
         arCameraBackground.enabled = true;
 
         yield return StartCoroutine(FadeIn());
-        scanningCanvas.alpha = 1f;
+        instructionText.SetInstruction("Scanning...");
     }
 
     IEnumerator FadeIn()
