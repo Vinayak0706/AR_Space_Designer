@@ -7,6 +7,7 @@ public class ScanningUIController : MonoBehaviour
     [Header("References")]
     public ARPlaneManager planeManager;
     public InstructionText instructionText;
+    public GameObject modelSelectorUI;
 
     bool hasFoundPlane = false;
 
@@ -19,6 +20,8 @@ public class ScanningUIController : MonoBehaviour
         {
             hasFoundPlane = true;
             instructionText.SetInstruction("Tap to place object.");
+            modelSelectorUI.SetActive(true);
+
         }
     }
 
