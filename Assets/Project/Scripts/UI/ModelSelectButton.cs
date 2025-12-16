@@ -33,6 +33,5 @@ public class ModelSelectButton : MonoBehaviour
         }
 
         placementController.SetSelectedObject(objectData);
-        gameObject.GetComponent<Button>().interactable = false;
     }
 }

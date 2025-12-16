@@ -18,6 +18,7 @@ public class ARPlacementController : MonoBehaviour
 
     [Header("UI")]
     public InstructionText instructionText;
+       public GameObject resetButton;
 
     private GameObject placedObject;
     private static List<ARRaycastHit> hits = new();
@@ -74,9 +75,9 @@ public class ARPlacementController : MonoBehaviour
             }
 
             instructionText.SetInstruction(
-                "Drag to move • Pinch to scale • Rotate with two fingers"
+                "Drag to move • Pinch to scale • Double-tap and drag to rotate"
             );
-
+            resetButton.SetActive(true);
             DisablePlaneVisualization();
         }
     }
@@ -84,6 +85,10 @@ public class ARPlacementController : MonoBehaviour
     public void SetSelectedObject(PlaceableObjectData data)
     {
         selectedObject = data;
+        placedObject = null;
+    }
+    public void ResetPlacement()
+    {
         placedObject = null;
     }
 

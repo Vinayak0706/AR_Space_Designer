@@ -9,6 +9,7 @@ public class StartARController : MonoBehaviour
     public CanvasGroup fadeOverlay;
     public ARCameraBackground arCameraBackground;
     public InstructionText instructionText;
+ 
 
     [Header("AR")]
     public ARSession arSession;
